@@ -1,0 +1,6 @@
+---
+development:
+  db_filename: db/dev.db
+
+test:
+  db_filename: db/test.db
