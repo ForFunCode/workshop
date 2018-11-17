@@ -12,10 +12,16 @@ module CodeNiceBlog
           end
         end
       end
-      routing.get do
-        CodeNiceBlog::Account.create({name:'家瑋'})
-        CodeNiceBlog::Account.create({name:'文慶'})
-        CodeNiceBlog::Account.all.to_json()
+      routing.post do
+        begin
+          account_data = JSON.parse(routing.body.read)
+          puts account_data
+          CodeNiceBlog::RegisterAccount.call(account_data)
+          response.status = 201
+          {'message': 'account created'}.to_json()
+        rescue StandardError => error
+          routing.halt 404, { message: error.message }.to_json
+        end
       end
     end
   end
