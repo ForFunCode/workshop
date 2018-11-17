@@ -15,6 +15,15 @@ module CodeNiceBlog
       end
 
       routing.on 'account' do
+
+        routing.on 'user' do
+          routing.on String do |id|
+            routing.get do
+              Account.where(id: id).first.to_json
+            end
+          end
+        end
+
         routing.get do
           CodeNiceBlog::Account.create({name:'家瑋'})
           CodeNiceBlog::Account.create({name:'文慶'})
