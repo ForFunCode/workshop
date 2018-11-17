@@ -21,13 +21,13 @@ module CodeNiceBlog
       puts '--------'
       puts 'here is development'
       ENV['DATABASE_URL'] = 'sqlite://' + config.db_filename
-      # puts config.db_filename
+      puts config.db_filename
     end
 
     configure :test do
-      # ENV['DATABASE_URL'] = 'sqlite://' + config.db_filename
       puts '--------'
       puts 'here is test'
+      ENV['DATABASE_URL'] = 'sqlite://' + config.db_filename
     end
 
     configure :production do
