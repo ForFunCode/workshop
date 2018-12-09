@@ -20,6 +20,10 @@ gem 'sequel'
 gem 'dry-struct'
 gem 'dry-types'
 
+# mail
+gem 'mail'
+gem 'tilt'
+
 group :test do
   gem 'minitest'
   gem 'minitest-rg'
