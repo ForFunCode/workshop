@@ -8,12 +8,18 @@ module CodeNiceBlog
     plugin :json
     plugin :halt
     plugin :multi_route
+    plugin :render
+    plugin :mailer
 
     route do |routing|
       # GET / request
       response['Content-Type'] = 'application/json'
       routing.root do
         { 'message' => "CodeNiceBlog API v0.1 up in #{Api.environment} mode" }.to_json()
+      end
+
+      Mail.defaults do
+        delivery_method :smtp, :address=>'smtp.gmail.com', :port=>587, :user_name=>"rodatest1994@gmail.com", :password=>"08110320"
       end
 
       routing.on 'api' do
