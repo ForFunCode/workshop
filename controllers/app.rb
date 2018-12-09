@@ -19,7 +19,7 @@ module CodeNiceBlog
       end
 
       Mail.defaults do
-        delivery_method :smtp, :address=>'smtp.gmail.com', :port=>587, :user_name=>"rodatest1994@gmail.com", :password=>"08110320"
+        delivery_method :smtp, :address=>'smtp.gmail.com', :port=>587, :user_name=>"victorlin12345@gmail.com", :password=>"a29685672"
       end
 
       routing.on 'api' do

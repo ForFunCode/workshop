@@ -18,6 +18,7 @@ module CodeNiceBlog
           puts account_data
           CodeNiceBlog::RegisterAccount.call(account_data)
           response.status = 201
+          Api.sendmail("/api/v1/mailer/account/added",account_data)
           {'message': 'account created'}.to_json()
         rescue StandardError => error
           routing.halt 404, { message: error.message }.to_json
